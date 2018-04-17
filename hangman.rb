@@ -1,6 +1,6 @@
 
 def init
-  
+
   session["name_player"]=$name_player
   $try=0
   $secret_word=""
@@ -12,9 +12,19 @@ def init
   session["secret_world"]=$secret_word
   session["answer"]=$answer
   session["incorrect"]=$incorrect
+  session["before"]="1"
 
 end
+def reinit
+  session["before"]=session["before"].to_i+1
+  $name_player=session["name_player"]
+  $try=session['try']
+  $secret_word=session["secret_world"]
+  $answer=session["answer"]
+  $incorrect=session["incorrect"]
 
+
+end
 
 def random_word
   word=""

@@ -21,27 +21,47 @@ get "/" do
 
 
     @session = session
-    #message=@session["name"]
+
 
     settings.colorbk= 'green'
- if @session["name_player"]
-   message="Ya habia entrado a jugar"
+ if @session["before"].to_i >=1
+   message="Ya habia entrado a jugar #{@session["name_player"]}"
+   #puts message
+   reinit
+   redirect to ("/name") , 307
  else
-    message="No ha entrado"
+   message="No hay nada #{@session["name_player"]},  try = #{@session['try']}"
+   #puts message
  end
   erb :index0, :locals => {:message => message,:colorbk => settings.colorbk}
 end
 
 post "/name" do
-  if $name_player == ""
+
+if session['before'].to_i >=1
+   $name_player=session['name_player']
+else
     $name_player=params[:name]
-  end
+end
   init
-    puts "Post #{$secret_word}"
+    #puts "Post #{$secret_word}"
   redirect "/play_game" , 307
 
 end
 
+get "/name" do
+  if session['before'].to_i >=1
+     $name_player=session['name_player']
+  else
+      $name_player=params[:name]
+  end
+  message1=" Hi again #{$name_player.to_s.capitalize}"
+  #puts "nombre #{$name_player}, valor de session before #{session['before']}"
+  #puts "Post #{$secret_word}"
+  message3=" Current Guess Status :   #{$answer.to_s.upcase}"
+
+erb :restarting, :locals => {:message1 => message1,:try =>$try,:message3 => message3}
+end
 
 post "/play_game" do
   message1=""
@@ -110,6 +130,10 @@ get "/endgame" do
     $secret_word=""
     $answer=""
     $incorrect=[]
+    session['try']=$try
+    session["secret_world"]=$secret_word
+    session["answer"]=$answer
+    session["incorrect"]=$incorrect
   end
 
     erb :endgames, :locals => {:name => name,:message1 => message1,:message3 =>message3,:try => try}
