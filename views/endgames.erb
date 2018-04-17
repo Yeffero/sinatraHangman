@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    body {
+      display:block ;
+      background: rgba(0, 150, 98, 0.5) ;
+      border: 10px solid #2f2c2b ;
+      margin:0 auto; width:' + screen.width/3 +'px;
+      text-align:center;
+      box-shadow: 5px 10px #aaaaaa;'
+    }
+    button {
+      font-size:15px;
+    }
+      </style>
+    </head>
+  <body>
+
+      <h1><%=message1%>  <%=name %> </h1>
+      <h2>After  <%=try%> tries  </h2>
+      <h3><%=message3%></h3>
+      <form method="post" action="/name">
+        <h4>Woud you like play again?</h4>
+        <button type="submit" class="btn btn-primary">Yes!!!</button>
+      </form>
+      </body>
+</html>

@@ -1,0 +1,26 @@
+Installation and start postgres as a services
+
+
+    brew tap homebrew/services
+    brew install postgres
+    brew services start postgresql
+
+Gem Instalaltion
+
+gem install pg -- --with-pg-config=/usr/local/bin/pg_config
+
+Create a database
+    psql -d postgres -c '\x' -c "CREATE DATABASE hangman"
+
+list database on postgresql
+
+psql -l
+                                List of databases
+   Name    |  Owner  | Encoding |   Collate   |    Ctype    |  Access privileges
+-----------+---------+----------+-------------+-------------+---------------------
+ hangman   | yeparra | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+ postgres  | yeparra | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+ template0 | yeparra | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/yeparra         +
+           |         |          |             |             | yeparra=CTc/yeparra
+ template1 | yeparra | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/yeparra         +
+           |         |          |             |             | yeparra=CTc/yeparra    

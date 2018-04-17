@@ -1,0 +1,47 @@
+
+<html>
+  <head>
+    <style>
+    body {
+      display:block ;
+      background: rgba(0, 150, 98, 0.5) ;
+      border: 10px solid #2f2c2b ;
+      margin:0 auto; width:' + screen.width/3 +'px;
+      text-align:center;
+      box-shadow: 5px 10px #aaaaaa;
+    }
+    p {
+      display:block ;
+      font-size:20px;
+      font-style: italic;
+      background: rgba(0, 150, 98, 0.5) ;
+      border: 10px solid #2f2c2b ;
+      text-align:center;
+      box-shadow: 5px 10px #aaaaaa;
+    }
+    button {
+      font-size:15px;
+    }
+      </style>
+    </head>
+  <body>
+    <h1>Hi <%=session['name_player'].to_s.capitalize %> </h1>
+    <h2>Lets play!!! </h2>
+    <h2> You have <%=10 - session['try'].to_i%> oportunities </h2>
+    <form method="post" action="/play_game">
+      <div class="form-group">
+        <label for="name">Let me know your guest (one character every time)</label>
+        <input id="guess" name="guess" class="form-control" placeholder="Your Guess " />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Send your guess</button>
+    </form>
+    <p>
+        <%=message1%>
+    </p>
+    <p><%=message2%>
+    </p>
+
+
+  </body>
+</html>

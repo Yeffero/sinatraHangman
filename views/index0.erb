@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Hagman GAME</title>
+      <style >
+        body {
+          display:block ;
+          background: rgba(0, 150, 98, 0.5) ;
+          border: 10px solid #2f2c2b ;
+          margin:0 auto; width:' + screen.width/3 +'px;
+          text-align:center;
+          box-shadow: 5px 10px #aaaaaa;'
+        }
+        button {
+          font-size:10px;
+        }
+      </style>
+
+    </head>
+  <body >
+    <h1>Please let us know your name </h1>
+
+    <form method="post" action="/name">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" name="name" class="form-control" placeholder="Name" />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Log a new User</button>
+    </form>
+  </body>
+</html>
