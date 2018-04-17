@@ -1,5 +1,5 @@
 require "sinatra"
-require_relative "db/models"
+#require_relative "db/models"
 require_relative "hangman"
 
 configure do
